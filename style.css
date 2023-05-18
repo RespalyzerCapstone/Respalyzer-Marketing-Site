@@ -8,6 +8,19 @@ section {
   font-family: 'Raleway', sans-serif;
 }
 
+@media (max-width: 768px) {
+  /* For mobile devices */
+  section {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* For desktop devices */
+  section {
+    font-size: 35px;
+  }
+}
 
 
 /* Recorder */
