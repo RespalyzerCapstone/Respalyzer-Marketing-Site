@@ -158,12 +158,10 @@ def record():
         cursor = cnx.cursor()
         content = request.json
         recording = content['recording']
-        #date_recorded = content['date_recorded']
-       
-        #f"INSERT INTO public.recordings (recording, reading, date_recorded, user_id) VALUES ('{recording}','{reading}', NOW(), (SELECT MAX(user_id) FROM \"user\"))"        
+
         model = pickle.load(open('../model.pkl','rb'))
-        
-        
+
+
         resampled_audio = resample_audio(recording)
 
         upperCutoffFreq = 3000
@@ -182,7 +180,7 @@ def record():
             outcome, percentage, largest_index = process_predictions(predictions)
             likelihood = round((percentage * 100), 2)
         os.remove(temp_filename)
-        
+
         cursor.execute(f"INSERT INTO public.recordings (recording, reading, date_recorded, user_id, disease_id, likelihood) VALUES ('{recording}','{outcome}', NOW(), (SELECT MAX(user_id) FROM \"user\"), {largest_index}, {likelihood})")
         cnx.commit()
         cursor.close()
@@ -190,15 +188,15 @@ def record():
         return make_response({"success" : "Recording added"}, 201)
     except Exception as e:
         return make_response({'error': str(e)}, 400)
-    
+
 def resample_audio(filename):
     audioBuffer, nativeSampleRate = librosa.load(filename, dtype=np.float32, mono=True, sr=None)
-        
+
     if nativeSampleRate == gSampleRate:
         print("Resample Ran")
         return audioBuffer
     else:
-        duration = len(audioBuffer) / nativeSampleRate 
+        duration = len(audioBuffer) / nativeSampleRate
         nTargetSamples = int(duration * gSampleRate)
         timeXSource = np.linspace(0, duration, len(audioBuffer), dtype=np.float32)
         timeX = np.linspace(0, duration, nTargetSamples, dtype=np.float32)
@@ -228,7 +226,7 @@ def applyHighpass(npArr, highPassCoeffs):
 
 def audio_features(filename):
     sound, sample_rate = librosa.load(filename)
-    stft = np.abs(librosa.stft(sound))  
+    stft = np.abs(librosa.stft(sound)) 
 
     mfccs = np.mean(librosa.feature.mfcc(y=sound, sr=sample_rate, n_mfcc=40), axis=1)
     chroma = np.mean(librosa.feature.chroma_stft(S=stft, sr=sample_rate), axis=1)
