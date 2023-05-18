@@ -8,12 +8,6 @@ section {
   font-family: 'Raleway', sans-serif;
 }
 
-@media screen and (max-width: 600px) {
-  div.example {
-    font-size: 30px;
-  }
-}
-
 
 
 /* Recorder */
