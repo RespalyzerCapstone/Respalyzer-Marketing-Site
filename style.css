@@ -10,7 +10,8 @@ section {
 
 @media screen and (max-width: 500px){
   section{
-    font-size: 8px;
+    font-size: 20px;
+    padding: 10px;
   }
 }
 
