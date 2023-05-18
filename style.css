@@ -11,8 +11,8 @@ section {
 @media screen and (max-width: 500px){
   section{
     font-size: 20px;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
   }
 }
 
