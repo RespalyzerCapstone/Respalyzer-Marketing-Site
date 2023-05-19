@@ -16,6 +16,22 @@ section {
   }
 }
 
+.scroll-top-button {
+  background-color: #ffffff;
+  color: #73ad46;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.scroll-top-button:hover {
+  background-color: #e8eddf;
+  color: #73ad46;
+}
+
+
+
 .first-section .logo-container {
     display: flex;
     flex-direction: column;
@@ -62,6 +78,7 @@ section {
       transform: translateY(-15px);
     }
   }
+  
 
 /* Recorder */
 

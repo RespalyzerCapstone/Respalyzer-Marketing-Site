@@ -7,14 +7,14 @@ $(document).ready(function() {
     $('#fullpage').fullpage({
       scrollBar: true,
       navigation: true,
-      navigationTooltips: ['This is:', 'Your Companion', 'We aim to:', 'We do this by:', 'Possible results', 'Please note', 'Lets Try it', 'Recording', 'Your Results', 'Coming to', 'Meet the Team'],
+      navigationTooltips: ['This is:', 'Your Companion', 'We aim to:', 'We do this by:', 'Possible results', 'Please note', 'Lets Try it', 'Recording', 'Your Results', 'Coming to', 'Meet the Team', 'Janai', 'PJ', 'Peter', 'Ryan'],
       loopBottom: true,
       sectionSelector: 'section'
     });
   
   //apply color to each section from array
   int = -1;
-  color_array = ['#e8eddf','#adca7a' ,'#73ad46', '#437b18', '#e8eddf', '#FFFFFF' ,'#73ad46', '#437b18', '#e8eddf','#2e83e4' ,'#73ad46'];
+  color_array = ['#e8eddf','#adca7a' ,'#73ad46', '#437b18', '#e8eddf', '#FFFFFF' ,'#73ad46', '#437b18', '#e8eddf','#2e83e4' , '#73ad46', '#0770a0' ,'#05518b', '#d93434' ];
 
 
   $('section').each(function(){
@@ -23,6 +23,10 @@ $(document).ready(function() {
   });
   
 });
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
 
 // Recording
