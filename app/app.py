@@ -5,9 +5,14 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file contains the routes for your application.
 """
 
+import os
+#os.environ["FFMPEG_PATH"] = "../venv/Lib/site-packages/ffmpeg"
+
 from flask import Flask
 from flask import request, make_response, flash, jsonify
 from flask_cors import CORS
+
+
 
 
 app = Flask(__name__)
@@ -21,7 +26,6 @@ import numpy as np
 from scipy import signal
 
 from werkzeug.utils import secure_filename
-import os
 import keras
 
 # these libraries deal with mp3 to wav conversion
@@ -157,7 +161,7 @@ def process_predictions(predictions):
     return outcome, percentage, largest_index"""
     
 
-@app.route('/record', methods=["GET", "POST"])
+@app.route('/record', methods=["POST"])
 def record():
     try:
         if request.method == 'POST':
@@ -174,9 +178,10 @@ def record():
 
             # Load the trained AI model
             model = pickle.load(open('../model.pkl', 'rb'))
-
+            print("model loads")
             # Preprocess the recording
             resampled_audio = resample_audio(temp_filename)
+            print("resampled")
             # Rest of the preprocessing steps...
             upperCutoffFreq = 3000
             cutoffFrequencies = [80, upperCutoffFreq]
@@ -197,6 +202,7 @@ def record():
                 predictions = model.predict(features_reshaped)
                 outcome, percentage, largest_index = process_predictions(predictions)
                 likelihood = round((percentage * 100), 2)
+                print(outcome, likelihood)
 
             # Remove the temporary audio file
             os.remove(temp_filename)
@@ -208,14 +214,14 @@ def record():
             }
             return jsonify(response), 200
 
-        # Handle GET request or other methods
-        # ...
-
     except Exception as e:
+        print("ERROR", e)
         return jsonify({'error': str(e)}), 400
 
 def resample_audio(filename):
+    print("librosa 1")
     audioBuffer, nativeSampleRate = librosa.load(filename, dtype=np.float32, mono=True, sr=None)
+    print("Resample Ran")
 
     if nativeSampleRate == gSampleRate:
         print("Resample Ran")
