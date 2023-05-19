@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     // Make an HTTP POST request to the Flask API
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://127.0.0.1:5000/record', true);
+    xhr.open('POST', 'your-ip-here/record', true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
@@ -65,32 +65,6 @@ $(document).ready(function() {
     };
     xhr.send(formData);
   }
-    //   fetch('http://127.0.0.1:5000/record', {
-    //     method: 'POST',
-    //     body: formData
-    //   })
-    //     .then(function (response) {
-    //       // Handle the response from the API
-    //       if (response.ok) {
-    //         console.log(response.json())
-    //         return response.json();
-    //       } else {
-    //         return response.text().then(function (error) {
-    //   console.error('API request failed:', error);
-    //   throw new Error('API request failed: ' + error);
-    // });
-    //     }
-    // })
-    // .then(function(data) {
-    //     // Process the API response
-    //     handleApiResponse(data);
-    // })
-    // .catch(function(error) {
-    //     // Handle any errors that occur during the API request
-    //     console.error(error);
-    // });
-    // }
-
     function handleApiResponse(data) {
     // Handle the response data and update the webpage accordingly
     // You can access the outcome and likelihood values from the 'data' object
