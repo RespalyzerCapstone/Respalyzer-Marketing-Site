@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     // Make an HTTP POST request to the Flask API
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'your-ip-here/record', true);
+    xhr.open('POST', 'youriphere/record', true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
