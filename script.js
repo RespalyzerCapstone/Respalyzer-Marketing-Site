@@ -14,7 +14,7 @@ $(document).ready(function() {
   
   //apply color to each section from array
   int = -1;
-  color_array = ['#e8eddf','#adca7a' ,'#73ad46', '#437b18', '#e8eddf', '#FFFFFF' ,'#73ad46', '#437b18', '#e8eddf','#2e83e4' , '#73ad46', '#0770a0' ,'#05518b', '#d93434' ];
+  color_array = ['#e8eddf','#adca7a' ,'#73ad46', '#437b18', '#e8eddf', '#FFFFFF' ,'#73ad46', '#437b18', '#e8eddf','#2e83e4' , '#73ad46', '#0770a0' ,'#05518b', '#d93434', '#73ad46'];
 
 
   $('section').each(function(){
