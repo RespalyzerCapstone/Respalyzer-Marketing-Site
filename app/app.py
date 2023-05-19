@@ -270,7 +270,7 @@ def audio_features(filename):
     return concat
 
 def process_predictions(predictions):
-    readings = ["COPD", "Healthy", "URTI", "Bronchiectasis", "Pneumonia", "Bronchiolitis"]
+    readings = ["Chronic Obstructive Pulmonary Disease", "Healthy", "Upper Respiratory Tract Infection", "Bronchiectasis", "Pneumonia", "Bronchiolitis"]
     print(predictions)
     largest_index = np.argmax(predictions)
     print(largest_index)

@@ -101,7 +101,7 @@ $(document).ready(function() {
     // For example, you can update a <div> element with the results
     var resultsDiv = document.getElementById('results');
     // if (resultsDiv) {
-      resultsDiv.innerHTML = 'Outcome: ' + outcome + '<br>Likelihood: ' + likelihood + '%';
+      resultsDiv.innerHTML = 'Outcome: ' + outcome + '<br>Likelihood: ' + likelihood + '% similarity to someone with ' + outcome;
     // }
 }
 
@@ -205,11 +205,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
         msg_box.innerHTML = '<a href="#" onclick="play(); return false;" class="txt_btn">' + lang.play  + ' (' + t + 's)</a><br>' +
           '<a href="#" onclick="save(); return false;" class="txt_btn">' + lang.download + '</a>'
-        
-        // var resultsDiv = document.getElementById('results');
-        // if (resultsDiv) {
-        //   resultsDiv.innerHTML = 'Outcome: COPD <br>Likelihood: 100%';
-        // }
+
         sendAudioToAPI(blob)
       };
     }).catch(function (error) {
