@@ -30,7 +30,35 @@ section {
   color: #73ad46;
 }
 
+.pos_btn {
+  background-color: #73ad46;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
 
+.pos_btn:hover {
+  background-color: #609d37;
+  cursor: pointer;
+}
+
+.neg_btn {
+  background-color: #73ad46;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.neg_btn:hover {
+  background-color: #609d37;
+  cursor: pointer;
+}
 
 .first-section .logo-container {
     display: flex;
